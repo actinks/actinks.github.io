@@ -4,16 +4,18 @@ date: 2025-11-15T10:00:00+08:00
 draft: false
 ---
 
+
 ## 创建 GitHub Pages 仓库
 
-1. 登录 GitHub，创建新仓库（New repository）。
-2. 仓库名称必须为：`<你的GitHub用户名>.github.io`（例如：`alice.github.io`）。
-3. 选择 **Public**，**不要初始化 README**。
-4. 创建完成后，仓库应为空。
+- 登录 GitHub，创建新仓库（New repository）
+- 仓库名称必须为：`<username>.github.io`
+- 选择 **Public**，**不要初始化 README**
+- 创建完成后，仓库应为空
 
 ## 安装 Hugo
 
-> 请前往 [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases) 查看最新版本号。以下以 `v0.152.2` 为例。
+> 请前往 [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases) 查看最新版本号  
+以下以 `v0.152.2` 为例:
 
 ```bash
 VERSION="0.152.2"
@@ -47,10 +49,8 @@ git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git t
 vim hugo.toml
 ```
 
-内容如下（请将 `yourusername` 和个人信息替换为你的实际信息）：
-
 ```toml
-baseURL = "https://yourusername.github.io/"
+baseURL = "https://username.github.io/"
 languageCode = "en-us"
 title = "My's Blog"
 theme = "PaperMod"
@@ -66,8 +66,6 @@ theme = "PaperMod"
 ```bash
 hugo new posts/my-first-post.md
 ```
-
-生成的文件内容类似：
 
 ```markdown
 ---
@@ -87,9 +85,9 @@ Hello, this is my blog powered by Hugo and GitHub Pages!
 hugo server -D
 ```
 
-- `-D` 表示包含草稿（drafts）。
+- `-D` 表示包含草稿（drafts）
 - 打开浏览器访问：[http://localhost:1313](http://localhost:1313)
-- 修改文章后自动热重载。
+- 修改文章后自动热重载
 
 ## 部署到 GitHub Pages
 
@@ -105,36 +103,33 @@ hugo server -D
 git add .
 git commit -m "Initial commit with Hugo site"
 git branch -M main
-git remote add origin https://github.com/yourusername/yourusername.github.io.git
+git remote add origin https://github.com/username/username.github.io.git
 git push -u origin main
 ```
 
 3. **配置 GitHub Actions 自动构建并部署到 `gh-pages` 分支**
 
-在博客目录下创建 `.github/workflows/gh-pages.yml`：
+在博客目录下创建 `.github/workflows/deploy.yml`：
 
 ```yaml
-# .github/workflows/gh-pages.yml
-name: github pages
+# .github/workflows/deploy.yml
+name: Deploy Hugo to docs/
 
 on:
   push:
-    branches:
-      - main  # 当 main 分支有更新时触发
+    branches: ["main"]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pages: write
-      id-token: write
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true  # 必须，因为主题是 submodule
-          fetch-depth: 0    # 获取所有历史（可选）
+          submodules: true
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -142,22 +137,25 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
-        run: hugo --minify
+      - name: Build to docs/
+        run: hugo --minify --destination docs
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      - name: Deploy to main branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "Deploy Hugo site to docs/ [skip ci]" || echo "No changes"
+          git push
+
 ```
 
 4. **在 GitHub 仓库中启用 GitHub Pages**
 
-- 进入你的 `<username>.github.io` 仓库.
+- 进入 `<username>.github.io` 仓库.
 - 点击 **Settings → Pages**.
-- 在 **Build and deployment → Source** 中选择 **GitHub Actions**.
-- 保存。
+- 在 **Build and deployment → Source** 中选择 **Deploy from a branch**, **Branch** 选择 **main**, **/docs**
+- 保存
 
 5. **推送代码触发部署**
 
@@ -168,12 +166,12 @@ git push
 ```
 
 等待几分钟，Actions 成功运行后，访问：  
-👉 [https://yourusername.github.io/](https://yourusername.github.io/)
+👉 [https://username.github.io/](https://username.github.io/)
 
 ## 验证是否成功
 
 - 检查 GitHub Actions 是否显示绿色 ✅.
-- 访问 `https://yourusername.github.io` 应看到博客首页.
+- 访问 `https://username.github.io` 应看到博客首页.
 - 文章列表应包含你写的 **My First Post**.
 
 ## 日常写作流程
