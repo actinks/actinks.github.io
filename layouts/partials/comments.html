@@ -1,0 +1,11 @@
+<!-- layouts/partials/comments.html -->
+{{- if and (.Site.Params.utterances.enable) (not .Params.disableComments) }}
+<script src="https://utteranc.es/client.js"
+        repo="{{ .Site.Params.utterances.repo }}"
+        issue-term="{{ .Site.Params.utterances.issueTerm | default "pathname" }}"
+        label="{{ .Site.Params.utterances.label | default "comment" }}"
+        theme="{{ .Site.Params.utterances.theme | default "github-light" }}"
+        crossorigin="anonymous"
+        async>
+</script>
+{{- end }}
