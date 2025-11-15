@@ -1,16 +1,17 @@
 ---
-title: "Hugo + GitHub Pages 搭建个人博客（Ubuntu）"
+title: "Hugo + GitHub Pages 搭建个人博客(Ubuntu)"
 date: 2025-11-15T10:00:00+08:00
+summary: "这是一篇关于 ubuntu 环境中如何利用 hugo + github pages 搭建个人博客的文章" 
 draft: false
 ---
 
 
 ## 创建 GitHub Pages 仓库
 
-- 登录 GitHub，创建新仓库（New repository）
-- 仓库名称必须为：`<username>.github.io`
-- 选择 **Public**，**不要初始化 README**
-- 创建完成后，仓库应为空
+- 登录 GitHub, 创建新仓库（New repository）
+- 仓库名称必须为:`<username>.github.io`
+- 选择 **Public**, **不要初始化 README**
+- 创建完成后, 仓库应为空
 
 ## 安装 Hugo
 
@@ -91,12 +92,9 @@ hugo server -D
 
 ## 部署到 GitHub Pages
 
-使用 `gh-pages` 分支 + GitHub Actions 自动部署，这是最干净、主流的方式（源码和生成文件分离）。
-
 ### 步骤：
 
-1. **确保你刚创建的 `<username>.github.io` 仓库是空的。**
-2. **将 Hugo 源码推送到 `main` 分支：**
+1. **将 Hugo 源码推送到 `main` 分支：**
 
 ```bash
 # 在你的博客目录下
@@ -107,9 +105,9 @@ git remote add origin https://github.com/username/username.github.io.git
 git push -u origin main
 ```
 
-3. **配置 GitHub Actions 自动构建并部署到 `gh-pages` 分支**
+2. **配置 GitHub Actions 自动构建**
 
-在博客目录下创建 `.github/workflows/deploy.yml`：
+在博客目录下创建 `.github/workflows/deploy.yml`:
 
 ```yaml
 # .github/workflows/deploy.yml
@@ -150,14 +148,14 @@ jobs:
 
 ```
 
-4. **在 GitHub 仓库中启用 GitHub Pages**
+3. **在 GitHub 仓库中启用 GitHub Pages**
 
 - 进入 `<username>.github.io` 仓库.
 - 点击 **Settings → Pages**.
 - 在 **Build and deployment → Source** 中选择 **Deploy from a branch**, **Branch** 选择 **main**, **/docs**
 - 保存
 
-5. **推送代码触发部署**
+4. **推送代码触发部署**
 
 ```bash
 git add .
@@ -165,14 +163,12 @@ git commit -m "Add GitHub Actions workflow"
 git push
 ```
 
-等待几分钟，Actions 成功运行后，访问：  
-👉 [https://username.github.io/](https://username.github.io/)
+等待几分钟,Actions 成功运行后,访问：[https://username.github.io/](https://username.github.io/)
 
 ## 验证是否成功
 
 - 检查 GitHub Actions 是否显示绿色 ✅.
 - 访问 `https://username.github.io` 应看到博客首页.
-- 文章列表应包含你写的 **My First Post**.
 
 ## 日常写作流程
 
@@ -182,7 +178,7 @@ git push
 hugo new posts/another-post.md
 ```
 
-编辑内容，设置 `draft: false`.
+编辑内容,设置 `draft: false`.
 
 **本地预览：**
 
@@ -195,7 +191,13 @@ hugo server -D
 ```bash
 git add .
 git commit -m "Add new post: ..."
+git pull --rebase origin main
 git push
 ```
 
-GitHub Actions 会自动部署，几分钟后更新上线！
+GitHub Actions 会自动部署,几秒/分钟后更新上线！
+
+
+
+## Refs
+[https://gohugo.io/host-and-deploy/host-on-github-pages/](https://gohugo.io/host-and-deploy/host-on-github-pages/)
