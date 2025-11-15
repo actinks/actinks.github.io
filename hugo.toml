@@ -6,3 +6,13 @@ theme = "PaperMod"
 [params]
   author = "Actinks"
   description = "A blog about..."
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+
+[params.utterances]
+  enable = true
+  repo = "actinks/actinks.github.io"   # 格式：用户名/仓库名
+  issueTerm = "pathname"               # 每篇文章用独立 issue，基于 URL 路径
+  label = "comment"                    # 可选：自动给 issue 打上标签
+  theme = "preferred-color-scheme"     # 自动跟随系统/博客主题（dark/light）
+  crossorigin = "anonymous"
