@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Actink's Blog</title><link>https://actinks.github.io/</link><description>Recent content on Actink's Blog</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 15 Nov 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://actinks.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo + GitHub Pages 搭建个人博客（Ubuntu）</title><link>https://actinks.github.io/posts/getting-started-with-hugo-and-githubpages/</link><pubDate>Sat, 15 Nov 2025 10:00:00 +0800</pubDate><guid>https://actinks.github.io/posts/getting-started-with-hugo-and-githubpages/</guid><description>&lt;h2 id="创建-github-pages-仓库"&gt;创建 GitHub Pages 仓库&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;登录 GitHub，创建新仓库（New repository）。&lt;/li&gt;
+&lt;li&gt;仓库名称必须为：&lt;code&gt;&amp;lt;你的GitHub用户名&amp;gt;.github.io&lt;/code&gt;（例如：&lt;code&gt;alice.github.io&lt;/code&gt;）。&lt;/li&gt;
+&lt;li&gt;选择 &lt;strong&gt;Public&lt;/strong&gt;，&lt;strong&gt;不要初始化 README&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;创建完成后，仓库应为空。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="安装-hugo"&gt;安装 Hugo&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;请前往 &lt;a href="https://github.com/gohugoio/hugo/releases"&gt;https://github.com/gohugoio/hugo/releases&lt;/a&gt; 查看最新版本号。以下以 &lt;code&gt;v0.152.2&lt;/code&gt; 为例。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;VERSION&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;0.152.2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget &lt;span style="color:#e6db74"&gt;&amp;#34;https://github.com/gohugoio/hugo/releases/download/v&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;VERSION&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/hugo_extended_&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;VERSION&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;_linux-amd64.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo dpkg -i &lt;span style="color:#e6db74"&gt;&amp;#34;hugo_extended_&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;VERSION&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;_linux-amd64.deb&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 验证&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo version
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 应输出：hugo v0.152.2-... extended ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="创建-hugo-站点"&gt;创建 Hugo 站点&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 创建博客目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir -p ~/projects/blog &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; cd ~/projects/blog
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 初始化 Hugo 站点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo new site .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 初始化 Git 并添加 PaperMod 主题（轻量、快速、开发者友好）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git submodule add --depth&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="配置-hugotoml"&gt;配置 &lt;code&gt;hugo.toml&lt;/code&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vim hugo.toml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内容如下（请将 &lt;code&gt;yourusername&lt;/code&gt; 和个人信息替换为你的实际信息）：&lt;/p&gt;</description></item></channel></rss>
