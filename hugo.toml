@@ -1,8 +1,8 @@
-baseURL = "https://github.com/actinks/actinks.github.io"
+baseURL = "https://actinks.github.io"
 languageCode = "en-us"
 title = "Actink's Blog"
 theme = "PaperMod"
 
 [params]
-  author = "Actink"
+  author = "Actinks"
   description = "A blog about..."
