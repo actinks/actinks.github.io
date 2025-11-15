@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Actink's Blog</title><link>https://actinks.github.io/posts/</link><description>Recent content in Posts on Actink's Blog</description><generator>Hugo -- 0.152.2</generator><language>en-us</language><lastBuildDate>Sat, 15 Nov 2025 10:00:00 +0800</lastBuildDate><atom:link href="https://actinks.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo + GitHub Pages 搭建个人博客（Ubuntu）</title><link>https://actinks.github.io/posts/getting-started-with-hugo-and-githubpages/</link><pubDate>Sat, 15 Nov 2025 10:00:00 +0800</pubDate><guid>https://actinks.github.io/posts/getting-started-with-hugo-and-githubpages/</guid><description>&lt;h2 id="创建-github-pages-仓库"&gt;创建 GitHub Pages 仓库&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;登录 GitHub，创建新仓库（New repository）。&lt;/li&gt;
-&lt;li&gt;仓库名称必须为：&lt;code&gt;&amp;lt;你的GitHub用户名&amp;gt;.github.io&lt;/code&gt;（例如：&lt;code&gt;alice.github.io&lt;/code&gt;）。&lt;/li&gt;
-&lt;li&gt;选择 &lt;strong&gt;Public&lt;/strong&gt;，&lt;strong&gt;不要初始化 README&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;创建完成后，仓库应为空。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;登录 GitHub，创建新仓库（New repository）&lt;/li&gt;
+&lt;li&gt;仓库名称必须为：&lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;选择 &lt;strong&gt;Public&lt;/strong&gt;，&lt;strong&gt;不要初始化 README&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;创建完成后，仓库应为空&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id="安装-hugo"&gt;安装 Hugo&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;请前往 &lt;a href="https://github.com/gohugoio/hugo/releases"&gt;https://github.com/gohugoio/hugo/releases&lt;/a&gt; 查看最新版本号。以下以 &lt;code&gt;v0.152.2&lt;/code&gt; 为例。&lt;/p&gt;
+&lt;p&gt;请前往 &lt;a href="https://github.com/gohugoio/hugo/releases"&gt;https://github.com/gohugoio/hugo/releases&lt;/a&gt; 查看最新版本号&lt;br&gt;
+以下以 &lt;code&gt;v0.152.2&lt;/code&gt; 为例:&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;VERSION&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;0.152.2&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget &lt;span style="color:#e6db74"&gt;&amp;#34;https://github.com/gohugoio/hugo/releases/download/v&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;VERSION&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;/hugo_extended_&lt;/span&gt;&lt;span style="color:#e6db74"&gt;${&lt;/span&gt;VERSION&lt;span style="color:#e6db74"&gt;}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;_linux-amd64.deb&amp;#34;&lt;/span&gt;
@@ -30,4 +31,22 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git submodule add --depth&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="配置-hugotoml"&gt;配置 &lt;code&gt;hugo.toml&lt;/code&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vim hugo.toml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内容如下（请将 &lt;code&gt;yourusername&lt;/code&gt; 和个人信息替换为你的实际信息）：&lt;/p&gt;</description></item></channel></rss>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-toml" data-lang="toml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;baseURL&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;https://username.github.io/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;languageCode&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;en-us&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;title&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;My&amp;#39;s Blog&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;theme&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;PaperMod&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#a6e22e"&gt;params&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;author&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;Your Name&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;description&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;A blog about ...&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="写第一篇文章"&gt;写第一篇文章&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo new posts/my-first-post.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;title: &amp;#34;My First Post&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;date: 2025-11-15T10:00:00+08:00
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;draft: true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Hello, this is my blog powered by Hugo and GitHub Pages!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;将 &lt;code&gt;draft: true&lt;/code&gt; 改为 &lt;code&gt;draft: false&lt;/code&gt; 才会发布！&lt;/p&gt;</description></item></channel></rss>
