@@ -154,9 +154,9 @@ jobs:
 
 4. **在 GitHub 仓库中启用 GitHub Pages**
 
-- 进入你的 `<username>.github.io` 仓库。
-- 点击 **Settings → Pages**。
-- 在 **Build and deployment → Source** 中选择 **GitHub Actions**。
+- 进入你的 `<username>.github.io` 仓库.
+- 点击 **Settings → Pages**.
+- 在 **Build and deployment → Source** 中选择 **GitHub Actions**.
 - 保存。
 
 5. **推送代码触发部署**
@@ -172,9 +172,9 @@ git push
 
 ## 验证是否成功
 
-- 检查 GitHub Actions 是否显示绿色 ✅。
-- 访问 `https://yourusername.github.io` 应看到博客首页。
-- 文章列表应包含你写的 **My First Post**。
+- 检查 GitHub Actions 是否显示绿色 ✅.
+- 访问 `https://yourusername.github.io` 应看到博客首页.
+- 文章列表应包含你写的 **My First Post**.
 
 ## 日常写作流程
 
@@ -184,7 +184,7 @@ git push
 hugo new posts/another-post.md
 ```
 
-编辑内容，设置 `draft: false`。
+编辑内容，设置 `draft: false`.
 
 **本地预览：**
 
